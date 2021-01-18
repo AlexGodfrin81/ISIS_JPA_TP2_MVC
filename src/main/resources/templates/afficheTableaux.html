@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Liste des tableaux</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+        </head>
+        <body>
+            <h1>Les tableaux</h1>
+            <a th:href="@{add}" href='formulaireTableau.html'>Ajouter un tableau</a>
+            <h3 th:text="${message}">Message de succès ou d'erreur</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Support</th>
+                        <th>Dimension</th>
+                        <th>Artiste</th>
+                        <th>Supression</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="t: ${tableaux}">
+                        <th th:text="${t.titre}">Titre du tableau</th>
+                        <th th:text="${t.support}">Support du tableau</th>
+                        <th th:text="${t.dimension}">Dimension du tableau</th>
+                        <th th:text="${t.auteur}">Artiste</th>
+                        <th><a th:href="@{delete(id=${t.id})}">Supprimer le tableau [[${t.titre}]]</a></th>
+                    </tr>
+                </tbody>
+            </table>
+            <hr/>
+            <a th:href="@{/}" href="../static/index.html">Retour au menu</a>
+            <hr/>
+        </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Ajouter une catégorie</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="../static/css/style.css"/>	
+	</head>
+	<body>
+		<h1>Ajouter un tableau</h1>
+		<!--/* Au revient au contrôleur, avec la méthode POST */-->
+		<!--/* th:object définit quel est l'objet édité par ce formulaire */-->
+		<form th:object="${tableau}" method="POST" th:action="@{save}">
+			<div class="column">
+				<label for="titre">Titre:</label>
+				<!--/* th:field définit quel champ de l'objet est édité par cette zone de saisie */-->
+				<input type="text" th:field="*{titre}" placeholder="Nom du tableau"/>
+                                <hr/>
+				<input type="submit" value="Enregistrer" /> <input type="reset" value="Réinitialiser" />
+			</div>
+			<div class="column">
+                                <label for="auteur">Auteur:</label>
+				<input type="text" th:field="*{auteur}" placeholder="Nom de l'auteur"/>	
+				<label for="support">Support:</label>
+				<input type="text" th:field="*{support}" placeholder="Support du tableau"/>
+                                <label for="dimension">Dimension:</label>
+				<input type="text" th:field="*{dimension}" placeholder="Dimension du tableau"/>	
+			</div>
+                </form>
+		<hr/>
+		<a th:href="@{/}" href="../static/index.html">Retour au menu</a>
+		<hr/>
+	</body>
+</html>
