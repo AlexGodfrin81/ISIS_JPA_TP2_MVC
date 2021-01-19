@@ -25,7 +25,9 @@ and open the template in the editor.
 			</div>
 			<div class="column">
                                 <label for="auteur">Auteur:</label>
-				<input type="text" th:field="*{auteur}" placeholder="Nom de l'auteur"/>	
+                                <select name="auteur">
+                                    <option th:each= "a : ${artistes}" th:value="${a.id}" th:text="${a.nom}" th:field="*{auteur}"></option>
+                                </select>
 				<label for="support">Support:</label>
 				<input type="text" th:field="*{support}" placeholder="Support du tableau"/>
                                 <label for="dimension">Dimension:</label>
