@@ -61,7 +61,7 @@ public class TableauController {
     /**
      * Appelé par 'formulaireTableau.html', méthode POST
      *
-     * @param galerie Une galerie initialisée avec les valeurs saisies dans le formulaire
+     * @param tableau Une galerie initialisée avec les valeurs saisies dans le formulaire
      * @param redirectInfo pour transmettre des paramètres lors de la redirection
      * @return une redirection vers l'affichage de la liste des tableaux
      */
@@ -76,7 +76,7 @@ public class TableauController {
         } catch (DataIntegrityViolationException e) {
             // Les noms sont définis comme 'UNIQUE' 
             // En cas de doublon, JPA lève une exception de violation de contrainte d'intégrité
-            message = "Erreur : La galerie '" + tableau.getTitre() + "' existe déjà";
+            message = "Erreur : Le tableau '" + tableau.getTitre() + "' existe déjà";
         }
         // RedirectAttributes permet de transmettre des informations lors d'une redirection,
         // Ici on transmet un message de succès ou d'erreur
