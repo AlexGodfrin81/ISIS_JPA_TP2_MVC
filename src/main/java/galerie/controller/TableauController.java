@@ -87,7 +87,7 @@ public class TableauController {
     
     @GetMapping(path = "delete")
     public String supprimeUneCategoriePuisMontreLaListe(@RequestParam("id") Tableau tableau, RedirectAttributes redirectInfo) {
-        String message = "La galerie '" + tableau.getTitre() + "' a bien été supprimée";
+        String message = "Le tableau '" + tableau.getTitre() + "' a bien été supprimée";
         try {
             dao.delete(tableau); // Ici on peut avoir une erreur (Si il y a des expositions pour ce tableau par exemple)
         } catch (DataIntegrityViolationException e) {

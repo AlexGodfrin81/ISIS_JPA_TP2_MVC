@@ -25,7 +25,8 @@
                         <th th:text="${t.titre}">Titre du tableau</th>
                         <th th:text="${t.support}">Support du tableau</th>
                         <th th:text="${t.dimension}">Dimension du tableau</th>
-                        <th th:text="${t.auteur}">Artiste</th>
+                        <th th:if="${t.auteur}" th:text="${t.auteur.getNom()}">L'auteur du tableau</th>
+                        <th th:if="!${t.auteur}">inconnu</th>
                         <th><a th:href="@{delete(id=${t.id})}">Supprimer le tableau [[${t.titre}]]</a></th>
                     </tr>
                 </tbody>
